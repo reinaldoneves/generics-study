@@ -9,6 +9,11 @@ import java.util.HashMap;
 import static br.com.genericsstudy.behavior.DisplayGeneric.displayArrayOfAnything;
 import static br.com.genericsstudy.behavior.DisplayArray.displayArray;
 
+
+/**
+ * Provided by Bro Code
+ * https://www.youtube.com/watch?v=jUcAyZ5OUm0
+ */
 public class Main {
 
     public static void main(String[] args) {
@@ -90,6 +95,8 @@ public class Main {
         jazzLegends.add("Ron Carter");
         jazzLegends.add("Bill Evans");
 
+        System.out.println(jazzLegends);
+
         /**
          * Instead of one generic type to receive any type of data,
          * your class can receive TWO types of any data type.
@@ -111,8 +118,16 @@ public class Main {
         choroLegends.put("Altamiro Carrilho", "Flauta");
         choroLegends.put("Garoto","Violão");
 
+        System.out.println(choroLegends);
 
-
+        /**
+         * We can also create a generic type of class not so generic.
+         * Like tye Number Class, in other words, a class that only receives a number,
+         * but any type of Number Data.
+         */
+        MyBoundedType<Integer> myBoundedInteger = new MyBoundedType<>(10);
+        MyBoundedType<Long> myBoundedLong = new MyBoundedType<>(10000000000L);
+        MyBoundedType<Double> myBoundedDouble = new MyBoundedType<>(0.333333);
     }
 
 }
