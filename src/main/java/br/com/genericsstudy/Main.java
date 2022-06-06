@@ -3,6 +3,9 @@ package br.com.genericsstudy;
 import br.com.genericsstudy.behavior.Draw;
 import br.com.genericsstudy.model.*;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import static br.com.genericsstudy.behavior.DisplayGeneric.displayArrayOfAnything;
 import static br.com.genericsstudy.behavior.DisplayArray.displayArray;
 
@@ -46,6 +49,69 @@ public class Main {
         Draw.draw(new Item());
         Draw.draw(new Player());
         Draw.draw(new NonPlayerCharacter());
+
+        /***
+         * Working with generic classes
+         * Bellow, we have four classes that work the same way.
+         * Instead, you can use a generic class to receive any type of data.
+         */
+
+        MyIntegerClass myIntegerClass = new MyIntegerClass(10);
+        MyDoubleClass myDoubleClass = new MyDoubleClass(10.0);
+        MyCharacterClass myCharClass = new MyCharacterClass('A');
+        MyStringClass myStringClass = new MyStringClass("MILES DAVIS");
+
+        System.out.println(myIntegerClass.getValue());
+        System.out.println(myDoubleClass.getValue());
+        System.out.println(myCharClass.getValue());
+        System.out.println(myStringClass.getValue());
+
+        /**
+         * The same thing above, but with generic class
+         */
+        MyGenericClass<Integer> myInt = new MyGenericClass<>(10);
+        MyGenericClass<Double> myDouble = new MyGenericClass<>(10.0);
+        MyGenericClass<Character> myChar = new MyGenericClass<>('A');
+        MyGenericClass<String> myString = new MyGenericClass<>("MILES DAVIS");
+
+        System.out.println(myInt.getValue());
+        System.out.println(myDouble.getValue());
+        System.out.println(myChar.getValue());
+        System.out.println(myString.getValue());
+
+        /**
+         * Take a look at Array list.
+         * You see that is exactly how we instantiate a generic class above.
+         * A ArrayList is a implementation of a list of any type of data. :)
+         */
+        ArrayList<String> jazzLegends = new ArrayList<>();
+        jazzLegends.add("Miles Davis");
+        jazzLegends.add("John Coltrane");
+        jazzLegends.add("Ron Carter");
+        jazzLegends.add("Bill Evans");
+
+        /**
+         * Instead of one generic type to receive any type of data,
+         * your class can receive TWO types of any data type.
+         */
+        MyTwoGenericsClass<Integer,Integer> myTwoIntegers = new MyTwoGenericsClass<>(10,20);
+        MyTwoGenericsClass<Integer,String> myIntString = new MyTwoGenericsClass<>(10,"MILES DAVIS");
+        MyTwoGenericsClass<String,Character> myStringChar = new MyTwoGenericsClass<>("Bill Evans",'P');
+        MyTwoGenericsClass<String,String> myTwoStrings = new MyTwoGenericsClass<>("Miles Davis","Trumpet");
+
+
+        /**
+         * The same thing to a Hasmap.
+         * Symply a class that has a key and a value.
+         * key and value are generic types of data.
+         */
+        HashMap<String, String> choroLegends = new HashMap<>();
+        choroLegends.put("Pixinguinha", "Flauta");
+        choroLegends.put("Jacob do Bandolim", "Bandolim");
+        choroLegends.put("Altamiro Carrilho", "Flauta");
+        choroLegends.put("Garoto","Violão");
+
+
 
     }
 
